@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}	
+{% block content %}
+<!-- Login Start -->
+<div class="login">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">    
+                <div class="register-form">
+                    <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>First Name</label>
+                            {{forms.first_name}}
+                            <!--<input class="form-control" type="text" placeholder="First Name">-->
+                        </div>
+                        <div class="col-md-6">
+                            <label>Last Name"</label>
+                            {{forms.last_name}}
+                           <!-- <input class="form-control" type="text" placeholder="Last Name">-->
+                        </div>
+                        <div class="col-md-6">
+                            <label>E-mail</label>
+                            {{forms.email}}
+                           <!-- <input class="form-control" type="text" placeholder="E-mail">-->
+                        </div>
+                        <div class="col-md-6">
+                            <label>Mobile No</label>
+                            {{forms.phone_number}}
+                           <!-- <input class="form-control" type="text" placeholder="Mobile No">-->
+                        </div>
+                        <div class="col-md-6">
+                            <label>Password</label>
+                            {{forms.password}}
+                           <!-- <input class="form-control" type="text" placeholder="Password">-->
+                        </div>
+                        <div class="col-md-6">
+                            <label>confirm Password</label>
+                            {{ forms.confirm_password }}
+                           <!-- <input class="form-control" type="text" placeholder="Password">-->
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn">Submit</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login End -->
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}		
+{% block content %}
+<!-- Login Start -->
+<div class="login">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">    
+                <div class="register-form">
+                    <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Username</label>
+                            <input class="form-control" name="username" type="text" placeholder="Username">
+                        <div class="col-md-6">
+                            <label>Password</label>
+                           <input class="form-control" name="password" type="text" placeholder="Password">
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn">Submit</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login End -->
+{% endblock %}
