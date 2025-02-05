@@ -22,7 +22,7 @@ from order.models import Order, OrderProduct, Payment
 # Create your views here.
 
 def register(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = RegistrationForm(request.POST)
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
@@ -35,18 +35,20 @@ def register(request):
             user.phone_number = phone_number
             user.save()
 
-            
-            email_subject = "Please Activate Your Account."
-            current_side = get_current_site(request)
-            context = {
-                'user':user,
-                'domain' : current_side,
-                'uid' : urlsafe_base64_encode(force_bytes(user.pk)),
-                'token' : default_token_generator.make_token(user),
-            }
-            message = render_to_string('account/verfication_mail.html',context)
-            send_email = EmailMessage(email_subject,message,to=[email])
-            send_email.send()
+            try:
+                email_subject = "Please Activate Your Account."
+                current_side = get_current_site(request)
+                context = {
+                    'user':user,
+                    'domain' : current_side,
+                    'uid' : urlsafe_base64_encode(force_bytes(user.pk)),
+                    'token' : default_token_generator.make_token(user),
+                }
+                message = render_to_string('accounts/verfication_mail.html',context)
+                send_email = EmailMessage(email_subject,message,to=[email])
+                send_email.send()
+            except:
+                pass
             return redirect('/account/login/?command=verification&email='+email)
         else:
             

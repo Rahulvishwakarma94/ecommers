@@ -6,6 +6,7 @@ class RegistrationForm(forms.ModelForm):
 
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Password...'}))
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Confirm Password...'}))
+    
 
     class Meta:
         model = Account
@@ -23,13 +24,12 @@ class RegistrationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(RegistrationForm,self).__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs['placeholder'] = "First Name"
-        self.fields['last_name'].widget.attrs['placeholder'] = "Last Name"
+        self.fields['last_name'].widget.attrs['placeholder'] = "Last Namme"
         self.fields['phone_number'].widget.attrs['placeholder'] = "Phone Number"
         self.fields['email'].widget.attrs['placeholder'] = "Email"
 
         for i in self.fields:
             self.fields[i].widget.attrs['class'] = "form-control"
-
 
 class AccountForm(forms.ModelForm):
     class Meta:
@@ -51,4 +51,4 @@ class ProfileForm(forms.ModelForm):
         super(ProfileForm,self).__init__(*args, **kwargs)
     
         for i in self.fields:
-            self.fields[i].widget.attrs['class'] = "form-control"    
+            self.fields[i].widget.attrs['class'] = "form-control"
