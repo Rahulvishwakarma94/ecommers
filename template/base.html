@@ -1,229 +1,463 @@
-<!DOCTYPE HTML>
+<!doctype html>
 {% load static %}
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<title>E Store - eCommerce HTML Template</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="eCommerce HTML Template Free Download" name="keywords">
-	<meta content="eCommerce HTML Template Free Download" name="description">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ecommerce Site </title>
 
-	<!-- Favicon -->
-	<link href="{% static 'img/favicon.ico' %}" rel="icon">
+    <!-- google fonts -->
+    <link href="http://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style-liberty.css' %}">
 
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+    <!--=========================== this is alertify message link css ===========================-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- =======================================end here ===========================================-->
 
-	<!-- CSS Libraries -->
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-	<link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet">
-	<link href="{% static 'lib/slick/slick-theme.css'}" rel="stylesheet">
-
-	<!-- Template Stylesheet -->
-	<link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 
 <body>
-	<!-- Top bar Start -->
-	<div class="top-bar">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-sm-6">
-					<i class="fa fa-envelope"></i>
-					support@email.com
-				</div>
-				<div class="col-sm-6">
-					<i class="fa fa-phone-alt"></i>
-					+012-345-6789
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Top bar End -->
-	
-	<!-- Nav Bar Start -->
-	<div class="nav">
-		<div class="container-fluid">
-			<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-				<a href="#" class="navbar-brand">MENU</a>
-				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-					<span class="navbar-toggler-icon"></span>
-				</button>
 
-				<div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-					<div class="navbar-nav mr-auto">
-						<a href="index.html" class="nav-item nav-link active">Home</a>
-						<a href="product-list.html" class="nav-item nav-link">Products</a>
-						<a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
-						<a href="cart.html" class="nav-item nav-link">Cart</a>
-						<a href="checkout.html" class="nav-item nav-link">Checkout</a>
-						<a href="my-account.html" class="nav-item nav-link">My Account</a>
-						<div class="nav-item dropdown">
-							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
-							<div class="dropdown-menu">
-								<a href="wishlist.html" class="dropdown-item">Wishlist</a>
-								<a href="login.html" class="dropdown-item">Login & Register</a>
-								<a href="contact.html" class="dropdown-item">Contact Us</a>
-							</div>
-						</div>
-					</div>
-					<div class="navbar-nav ml-auto">
-						<div class="nav-item dropdown">
-							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
-							<div class="dropdown-menu">
-								<a href="#" class="dropdown-item">Login</a>
-								<a href="#" class="dropdown-item">Register</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</div>
-	<!-- Nav Bar End -->      
-	
-	<!-- Bottom Bar Start -->
-	<div class="bottom-bar">
-		<div class="container-fluid">
-			<div class="row align-items-center">
-				<div class="col-md-3">
-					<div class="logo">
-						<a href="index.html">
-							<img src={% static 'img/logo.png' %} alt="Logo">
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="search">
-						<input type="text" placeholder="Search">
-						<button><i class="fa fa-search"></i></button>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="user">
-						<a href="wishlist.html" class="btn wishlist">
-							<i class="fa fa-heart"></i>
-							<span>(0)</span>
-						</a>
-						<a href="cart.html" class="btn cart">
-							<i class="fa fa-shopping-cart"></i>
-							<span>(0)</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Bottom Bar End -->       
- 
+    <!--/Header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
+                <h1><a class="navbar-brand pe-xl-5 pe-lg-4" href="{% url 'index' %}">
+                        <span class="w3yellow">Shoppy</span>Kart
+                    </a></h1>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-lg-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'store' %}">Store</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#Pages" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories <span class="fa fa-angle-down ms-1"></span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for category in links %}
+                                <li><a class="dropdown-item pt-2"
+                                        href="{{category.get_url}}">{{category.category_name}}</a>
+                                </li>
+                                
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#Pages" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Pages <span class="fa fa-angle-down ms-1"></span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item pt-2" href="blog.html">Blog Page</a></li>
+                                <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
+                                <li><a class="dropdown-item" href="elements.html">Elements</a></li>
+                                <li><a class="dropdown-item" href="error.html">Error Page</a></li>
+                                <li><a class="dropdown-item" href="faq.html">FaQ</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item search-right">
+                            <a href="#search" class="btn search-btn" title="search"><span class="fas fa-search me-2"
+                                    aria-hidden="true"></span></a>
+                            <!-- search popup -->
+                            <div id="search" class="pop-overlay">
+                                <div class="popup">
+                                    <h3 class="title-w3l two mb-4 text-left">Search Here</h3>
+                                    <form action="{% url 'search' %}" method="GET"
+                                        class="search-box d-flex position-relative">
+                                        <input type="search" placeholder="Enter Keyword here" name="keyword">
+                                        <button type="submit" class="btn"><span class="fas fa-search"
+                                                aria-hidden="true"></span></button>
+                                    </form>
+                                </div>
+                                <a class="close" href="#close">×</a>
+                            </div>
+                            <!-- /search popup -->
+                        </li>
+                    </ul>
+                    <!--/search-right-->
+
+                </div>
+                <ul class="header-search me-lg-4 d-flex">
+
+                    {% if request.user.is_authenticated %}
+
+                        <li class=" dropdown btn-primary  ">
+                            <a class="nav-link dropdown-toggle" href="#Pages" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                {{request.user.first_name}} <span class="fa fa-angle-down ms-1"></span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item pt-2" href="{% url 'logout'  %}">Logout</a></li>
+                                <li><a class="dropdown-item pt-3" href="{% url 'register'  %}">register</a></li>
+                                <li><a class="dropdown-item pt-4" href="{% url 'dashboard'  %}">Dasboard</a></li>
+                                <li><a class="dropdown-item pt-4" href="{% url 'change_password'  %}">changepassword</a></li>   
+                            </ul>
+                        </li>
+
+                    {% else %}
+                    <li class="get-btn me-2">
+                        <a href="{% url 'login' %}" class="btn btn-style btn-primary" title="search">
+                            <i class="fas fa-user me-lg-2"></i> <span class="btn-texe-inf">Login</span></a>
+                    </li>
+                    {% endif %}
+                    <li class="shopvcart galssescart2 cart cart box_1 get-btn">
+                        <a href="{% url 'cart' %}" class="btn btn-style btn-primary">
+                            <span class="fas fa-shopping-bag me-lg-2"></span> <span class="btn-texe-inf">Cart</span>
+                        </a>
+                    </li>
+                </ul>
+                <!--//search-right-->
+                <!-- toggle switch for light and dark theme -->
+                <div class="mobile-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+
+    <!--//Header-->
+    <section class="w3mid-gap"></section>
+    <!--/Banner-Start-->
 
 
-    {% block content %}
-    {% endblock %}
 
-  <!-- Footer Start -->
-  <div class="footer">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-3 col-md-6">
-				<div class="footer-widget">
-					<h2>Get in Touch</h2>
-					<div class="contact-info">
-						<p><i class="fa fa-map-marker"></i>123 E Store, Los Angeles, USA</p>
-						<p><i class="fa fa-envelope"></i>email@example.com</p>
-						<p><i class="fa fa-phone"></i>+123-456-7890</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-lg-3 col-md-6">
-				<div class="footer-widget">
-					<h2>Follow Us</h2>
-					<div class="contact-info">
-						<div class="social">
-							<a href=""><i class="fab fa-twitter"></i></a>
-							<a href=""><i class="fab fa-facebook-f"></i></a>
-							<a href=""><i class="fab fa-linkedin-in"></i></a>
-							<a href=""><i class="fab fa-instagram"></i></a>
-							<a href=""><i class="fab fa-youtube"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="col-lg-3 col-md-6">
-				<div class="footer-widget">
-					<h2>Company Info</h2>
-					<ul>
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Terms & Condition</a></li>
-					</ul>
-				</div>
-			</div>
+    {% block content %}{% endblock %}
+    <!--//w3l-subscription-infhny-->
+    <!--/w3l-footer-29-main-->
+    <footer class="w3l-footer-29-main">
+        <div class="footer-29 py-5">
+            <div class="container py-lg-4">
+                <div class="row footer-top-29 mt-md-5">
+                    <div class="col-lg-3 col-md-6 footer-list-29 footer-3 pe-lg-5">
+                        <h6 class="footer-title-29">USeful Links</h6>
+                        <div class="footer-listw3-grids">
+                            <ul class="footer-listw3">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="blog.html">Blogs</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="#support">Support</a></li>
+                                <li><a href="#news">News & Media</a></li>
+                                <li><a href="#Careers">Careers</a></li>
 
-			<div class="col-lg-3 col-md-6">
-				<div class="footer-widget">
-					<h2>Purchase Info</h2>
-					<ul>
-						<li><a href="#">Pyament Policy</a></li>
-						<li><a href="#">Shipping Policy</a></li>
-						<li><a href="#">Return Policy</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row payment align-items-center">
-			<div class="col-md-6">
-				<div class="payment-method">
-					<h2>We Accept:</h2>
-					<img src="{% static 'img/payment-method.png' %}" alt="Payment Method" />
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="payment-security">
-					<h2>Secured By:</h2>
-					<img src="{% static 'img/godaddy.svg' %}" alt="Payment Security" />
-					<img src="{% static 'img/norton.svg' %}" alt="Payment Security" />
-					<img src="{% static 'img/ssl.svg' %}"alt="Payment Security" />
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Footer End -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-list-29 footer-1 ps-lg-5 mt-lg-0 mt-md-5 mt-4">
+                        <h6 class="footer-title-29">Information</h6>
+                        <div class="footer-listw3-grids">
+                            <ul class="footer-listw3">
+                                <li><a href="#terms">Terms & Conditions</a></li>
+                                <li><a href="#deivery">Delivery Terms</a></li>
+                                <li><a href="#order">Order Tracking</a></li>
+                                <li><a href="#returns">Returns Policy</a></li>
+                                <li><a href="#support">Privacy Policy</a></li>
+                                <li><a href="#faq">FAQ</a></li>
+                                <li><a href="#shop">The Shop</a></li>
 
-<!-- Footer Bottom Start -->
-<div class="footer-bottom">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 copyright">
-				<p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>
-			</div>
+                            </ul>
 
-			<div class="col-md-6 template-by">
-				<p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Footer Bottom End -->       
+                        </div>
 
-<!-- Back to Top -->
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-list-29 footer-3 mt-lg-0 mt-md-5 mt-4 pe-lg-5">
+                        <h6 class="footer-title-29">Address</h6>
+                        <div class="footer-listw3-grids">
+                            <ul class="footer-listw3">
+                                <li>London, UK</li>
+                                <li>998 13h Street, Office 436</li>
+                                <li>Harlo 61466</li>
+                                <li><a href="tel:+(21) 255 999 8888">+(21) 255 999 8888</a></li>
+                                <li><a href="mailto:ShoppyKart@mail.com" class="mail">ShoppyKart@mail.com</a></li>
 
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="{% static 'lib/easing/easing.min.js' %}"></script>
-<script src="{% static 'lib/slick/slick.min.js' %}"></script>
+                            </ul>
 
-<!-- Template Javascript -->
-<script src="{% static 'js/main.js' %}"></script>
-	
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-list-29 footer-4 mt-lg-0 mt-md-5 mt-4  ps-lg-5">
+                        <h6 class="footer-title-29">Payment Method</h6>
+                        <ul class="pay-method-grids">
+                            <li><a class="pay-method" href="#"><span class="fab fa-cc-visa"
+                                        aria-hidden="true"></span></a>
+                            </li>
+                            <li><a class="pay-method" href="#"><span class="fab fa-cc-discover"
+                                        aria-hidden="true"></span></a>
+                            </li>
+                            <li><a class="pay-method" href="#"><span class="fab fa-cc-paypal"
+                                        aria-hidden="true"></span></a>
+                            </li>
+                            <li><a class="pay-method" href="#"><span class="fab fa-cc-mastercard"
+                                        aria-hidden="true"></span></a>
+                            <li><a class="pay-method" href="#"><span class="fab fa-cc-stripe"
+                                        aria-hidden="true"></span></a>
+                            <li><a class="pay-method" href="#"><span class="fab fa-cc-amex"
+                                        aria-hidden="true"></span></a>
+                            </li>
+                            <li><a class="pay-method" href="#"><span class="fab fa-cc-jcb"
+                                        aria-hidden="true"></span></a>
+                            </li>
+                            <li><a class="pay-method" href="#"><span class="cc-diners-club"
+                                        aria-hidden="true"></span></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="row bottom-copies">
+                    <p class="copy-footer-29 col-lg-8">© 2021 ShoppyKart. All rights reserved </p>
+                    <div class="col-lg-4 main-social-right mt-lg-0 mt-4">
+                        <div class="main-social-footer-29">
+                            <a href="#facebook" class="facebook"><span class="fab fa-facebook-f"></span></a>
+                            <a href="#twitter" class="twitter"><span class="fab fa-twitter"></span></a>
+                            <a href="#instagram" class="instagram"><span class="fab fa-instagram"></span></a>
+                            <a href="#linkd" class="linkd"><span class="fab fa-linkedin-in"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- move top -->
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+            <span class="fa fa-angle-up"></span>
+        </button>
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+
+        </script>
+        <!-- //move top -->
+    </footer>
+
+
+    <!-- Template JavaScript -->
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/theme-change.js' %}"></script>
+    <!-- cart-js -->
+    <script src="{% static 'assets/js/minicart.js' %}"></script>
+    <script>
+        shopv.render();
+
+        shopv.cart.on('shopv_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) { }
+            }
+        });
+
+    </script>
+    <!-- //cart-js -->
+    <!-- owlcarousel -->
+    <script src="{% static 'assets/js/owl.carousel.js' %}"></script>
+    <!-- script for banner slider-->
+    <script>
+        $(document).ready(function () {
+            $('.owl-one').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: false,
+                responsiveClass: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplaySpeed: 1000,
+                autoplayHoverPause: false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    480: {
+                        items: 1
+                    },
+                    667: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            })
+        })
+
+    </script>
+    <!-- //script -->
+    <!-- script for tesimonials carousel slider -->
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo2").owlCarousel({
+                loop: true,
+                nav: false,
+                margin: 50,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    736: {
+                        items: 1,
+                        nav: false
+                    },
+                    991: {
+                        items: 2,
+                        margin: 30,
+                        nav: false
+                    },
+                    1080: {
+                        items: 2,
+                        nav: false
+                    }
+                }
+            })
+        })
+
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- video popup -->
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+
+                fixedContentPos: false,
+                fixedBgPos: true,
+
+                overflowY: 'auto',
+
+                closeBtnInside: true,
+                preloader: false,
+
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+            $('.popup-with-move-anim').magnificPopup({
+                type: 'inline',
+
+                fixedContentPos: false,
+                fixedBgPos: true,
+
+                overflowY: 'auto',
+
+                closeBtnInside: true,
+                preloader: false,
+
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-slide-bottom'
+            });
+        });
+
+    </script>
+    <!-- //video popup -->
+
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function () {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function () {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function () {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+
+    </script>
+    <!-- //MENU-JS -->
+
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    {% block scripts %}{% endblock %}
+
+    <!-- //bootstrap -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Alertify Js Start -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script type="">
+        alertify.set('notifier','position', 'top-right');
+        {% for msg in messages %}
+            alertify.success('{{ msg }}');
+        {% endfor %}
+    </script>
+    <!-- Alertify Js End -->
 
 </body>
 

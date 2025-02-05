@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from store.models import Product
+from store.models import *
 
 def index(request):
-
-    pro = Product.objects.all()
+    
+    product = Product.objects.all().order_by('created_at')
 
     context = {
-        'product':pro,
+        'product':product,
     }
+    
     return render(request,'index.html',context)

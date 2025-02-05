@@ -1,54 +1,79 @@
 {% extends 'base.html' %}
-{% load static %}	
 {% block content %}
-<!-- Login Start -->
-<div class="login">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6">    
-                <div class="register-form">
-                    <form action="" method="post">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>First Name</label>
-                            {{forms.first_name}}
-                            <!--<input class="form-control" type="text" placeholder="First Name">-->
-                        </div>
-                        <div class="col-md-6">
-                            <label>Last Name"</label>
-                            {{forms.last_name}}
-                           <!-- <input class="form-control" type="text" placeholder="Last Name">-->
-                        </div>
-                        <div class="col-md-6">
-                            <label>E-mail</label>
-                            {{forms.email}}
-                           <!-- <input class="form-control" type="text" placeholder="E-mail">-->
-                        </div>
-                        <div class="col-md-6">
-                            <label>Mobile No</label>
-                            {{forms.phone_number}}
-                           <!-- <input class="form-control" type="text" placeholder="Mobile No">-->
-                        </div>
-                        <div class="col-md-6">
-                            <label>Password</label>
-                            {{forms.password}}
-                           <!-- <input class="form-control" type="text" placeholder="Password">-->
-                        </div>
-                        <div class="col-md-6">
-                            <label>confirm Password</label>
-                            {{ forms.confirm_password }}
-                           <!-- <input class="form-control" type="text" placeholder="Password">-->
-                        </div>
-                        <div class="col-md-12">
-                            <button type="submit" class="btn">Submit</button>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div style="margin: 8px auto; display: block; text-align:center;">
+
+    <!---728x90--->
 </div>
-<!-- Login End -->
+<section class="w3l-forml-main ">
+    <div class="form-hnyv-sec py-sm-5 py-3">
+        <!--form-stars-here-->
+        <div class="form-wrapv">
+
+            <h2>Get Register</h2>
+            
+            {{ form.email.errors }}
+            {{ form.non_field_errors }}
+
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-sub-w3">
+                    {{form.first_name}}
+                    <div class="icon-w3">
+                        <span class="fas fa-user" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-sub-w3">
+                    {{form.last_name}}
+                    <div class="icon-w3">
+                        <span class="fas fa-user" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-sub-w3">
+                    {{form.phone_number}}
+                    <div class="icon-w3">
+                        <span class="fas fa-user" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-sub-w3">
+                    {{form.email}}
+                    <div class="icon-w3">
+                        <span class="fas fa-user" aria-hidden="true"></span>
+                    </div>
+                </div>
+               
+                <div class="form-sub-w3">
+                    {{form.password}}
+                    <div class="icon-w3">
+                        <span class="fas fa-unlock-alt" aria-hidden="true"></span>
+                    </div>
+                </div>
+               
+                <div class="form-sub-w3">
+                    {{form.confirm_password}}
+                    <div class="icon-w3">
+                        <span class="fas fa-unlock-alt" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-sub-content">
+                    <p class="forgot-w3ls">Forgot Password?<a class href="#"> Click here</a></p>
+                    <p class="forgot-w3ls1">New User? <a class href="{% url 'login' %}">Login here</a></p>
+                </div>
+                <div class="submit-button text-center">
+                    <button class="btn btn-style btn-primary">Register</button>
+
+                </div>
+            </form>
+
+        </div>
+        <!--//form-ends-here-->
+    </div>
+    <!-- //coming -->
+</section>
+<div style="margin: 8px auto; display: block; text-align:center;">
+
+    <!---728x90--->
+
+</div>
+
 {% endblock %}
