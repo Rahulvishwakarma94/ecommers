@@ -1,10 +1,9 @@
 from django.shortcuts import get_object_or_404, render,redirect
-from account.forms import  AccountForm, ProfileForm, RegistrationForm
+from account.forms import RegistrationForm, AccountForm, ProfileForm
 from account.models import Account, UserProfile
 from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.hashers import make_password,check_password
 # Email
 from django.core.mail import EmailMessage
 from django.contrib.sites.shortcuts import get_current_site
@@ -22,45 +21,39 @@ from order.models import Order, OrderProduct, Payment
 # Create your views here.
 
 def register(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
             phone_number = form.cleaned_data['phone_number']
-            email = form.cleaned_data.get('email')
+            email = form.cleaned_data['email']
             password = form.cleaned_data['password']
             username = email.split("@")[0]
-            user = Account.objects.create_user(first_name=first_name,last_name=last_name,email=email,password=password,username=username)
+            user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password)
             user.phone_number = phone_number
             user.save()
 
-            try:
-                email_subject = "Please Activate Your Account."
-                current_side = get_current_site(request)
-                context = {
-                    'user':user,
-                    'domain' : current_side,
-                    'uid' : urlsafe_base64_encode(force_bytes(user.pk)),
-                    'token' : default_token_generator.make_token(user),
-                }
-                message = render_to_string('accounts/verfication_mail.html',context)
-                send_email = EmailMessage(email_subject,message,to=[email])
-                send_email.send()
-            except:
-                pass
+            # USER ACTIVATION
+            current_site = get_current_site(request)
+            mail_subject = 'Please activate your account'
+            message = render_to_string('account/verification_email.html', {
+                'user': user,
+                'domain': current_site,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': default_token_generator.make_token(user),
+            })
+            to_email = email
+            send_email = EmailMessage(mail_subject, message, to=[to_email])
+            send_email.send()
+            # messages.success(request, 'Thank you for registering with us. We have sent you a verification email to your email address [rathan.kumar@gmail.com]. Please verify it.')
             return redirect('/account/login/?command=verification&email='+email)
-        else:
-            
-            messages.error(request,"User is already register")
-            return register('register')
     else:
         form = RegistrationForm()
-
     context = {
-        'form':form,
+        'form': form,
     }
-    return render(request,'account/register.html', context)
+    return render(request, 'account/register.html', context)
 
 
 def login(request):
@@ -132,7 +125,7 @@ def activate(request,uid64,token):
 
 def logout(request):
     auth.logout(request)
-    messages.info(request,'Logout Sccess! Login Again')
+    messages.info(request,'Logout Success! Login Again')
     return redirect('login')
 
 
@@ -223,7 +216,7 @@ def change_password(request):
         else:
             messages.error(request, 'Password does not match!')
             return redirect('change_password')
-    return render(request, 'account/change_password.html')
+    return render(request, 'accounts/change_password.html')
 
 
 @login_required(login_url='login')

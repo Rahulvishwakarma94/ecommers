@@ -15,7 +15,7 @@
             {{ form.email.errors }}
             {{ form.non_field_errors }}
 
-            <form action="{% url 'register' %}" method="POST">
+            <form action="{% url 'register' %}" method="post">
                 {% csrf_token %}
                 <div class="form-sub-w3">
                     {{form.first_name}}

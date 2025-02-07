@@ -1,12 +1,12 @@
 from django.db import models
-from category.models import Category
+from category.models import SubCategory
 from django.urls import reverse
 # Create your models here.
 
 class Product(models.Model):
     product_name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=200,unique=True)
-    category = models.ForeignKey(Category,on_delete=models.CASCADE)
+    SubCategory = models.ForeignKey(SubCategory,on_delete=models.CASCADE)
     product_image = models.ImageField(upload_to='product_image/')
     product_price = models.IntegerField()
     product_stock = models.IntegerField()
